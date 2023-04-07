@@ -13,7 +13,10 @@ function TaskForm() {
 
         const task = {title, description, completed}
 
-        const response = await fetch('/api/tasks', {
+        // localhost
+        // const response = await fetch('/api/tasks', {
+        // Heroku
+        const response = await fetch('https://taskmaster-server.herokuapp.com/api/tasks', {
             method: 'POST', 
             body: JSON.stringify(task),
             headers: {
