@@ -59,6 +59,7 @@ function TaskForm() {
             </div>
 
             <button>Add Task</button>
+            {error && <p>{error}</p>}
         </form>
     )
 }
