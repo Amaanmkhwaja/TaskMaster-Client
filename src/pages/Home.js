@@ -11,7 +11,7 @@ function Home() {
 
   useEffect(() => {
     const fetchTasks = async () => {
-      const response = await fetch('/api/tasks')
+      const response = await fetch('https://taskmaster-server.herokuapp.com/api/tasks')
       const json = await response.json()
 
       if (response.ok) {
