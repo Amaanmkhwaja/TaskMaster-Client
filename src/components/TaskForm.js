@@ -1,8 +1,10 @@
 import React from 'react'
 import { useState } from 'react'
+import { useTasksContext } from "../hooks/useTasksContext";
 
 function TaskForm() {
 
+    const {dispatch} = useTasksContext()
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [completed, setCompleted] = useState(false);
@@ -14,9 +16,9 @@ function TaskForm() {
         const task = {title, description, completed}
 
         // localhost
-        // const response = await fetch('/api/tasks', {
+        const response = await fetch('/api/tasks', {
         // Heroku
-        const response = await fetch('https://taskmaster-server.herokuapp.com/api/tasks', {
+        // const response = await fetch('https://taskmaster-server.herokuapp.com/api/tasks', {
             method: 'POST', 
             body: JSON.stringify(task),
             headers: {
@@ -34,6 +36,7 @@ function TaskForm() {
             setCompleted(false)
             setError(null)
             console.log(`new task added ${json}`)
+            dispatch({type: "CREATE_TASK", payload: json})
         }
     }
 

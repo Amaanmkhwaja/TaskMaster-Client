@@ -1,5 +1,6 @@
 import React from 'react'
-import { useEffect, useState} from 'react'
+import { useState, useEffect} from 'react'
+import { useTasksContext } from "../hooks/useTasksContext";
 
 // components
 import TaskDetails from '../components/taskDetails'
@@ -7,29 +8,44 @@ import TaskForm from '../components/TaskForm'
 
 function Home() {
 
-  const [tasks, setTasks] = useState(null)
+  const [loading, setLoading] = useState(true);
+  const { tasks, dispatch } = useTasksContext()
 
   useEffect(() => {
     const fetchTasks = async () => {
-      const response = await fetch('https://taskmaster-server.herokuapp.com/api/tasks')
-      const json = await response.json()
-
-      if (response.ok) {
-        setTasks(json)
+      try {
+        // localhost
+        const response = await fetch('/api/tasks')
+        // deployed
+        // const response = await fetch('https://taskmaster-server.herokuapp.com/api/tasks')
+        const json = await response.json();
+        if (response.ok) {
+          dispatch({ type: 'SET_TASKS', payload: json });
+          setLoading(false);
+        } else {
+          throw new Error('Failed to fetch tasks');
+        }
+      } catch (err) {
+        console.error(err);
       }
-    }
-
-    fetchTasks()
-  }, [])
+    };
+    fetchTasks();
+  }, [dispatch]);
 
   return (
     <div className='home'>
-      <div className='tasks'>
-        {tasks && tasks.map((task) => (
-          <TaskDetails key={task._id} task={task} />
-        ))}
-      </div>
-      <TaskForm/>
+      {loading ? (
+        <p>Loading tasks...</p>
+      ) : (
+        <>
+          <div className='tasks'>
+            {tasks && tasks.map((task) => (
+              <TaskDetails key={task._id} task={task} />
+            ))}
+          </div>
+          <TaskForm/>
+        </>
+      )}
     </div>
   )
 }
