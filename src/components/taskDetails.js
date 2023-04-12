@@ -13,9 +13,9 @@ function TaskDetails({task}) {
 
     try {
       // localhost
-      // const response = await fetch('/api/tasks/' + task._id, {
+      const response = await fetch('/api/tasks/' + task._id, {
       //deployed
-      const response = await fetch('https://taskmaster-server.herokuapp.com/api/tasks' + task._id, {
+      // const response = await fetch('https://taskmaster-server.herokuapp.com/api/tasks' + task._id, {
         method: 'DELETE'
       })
       const json = await response.json()
