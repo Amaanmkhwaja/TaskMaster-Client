@@ -66,15 +66,15 @@ header a {
   color: #555;
 }
 
-.task-details span {
+.task-details form {
   position: absolute;
   top: 20px;
   right: 20px;
   cursor: pointer;
-  background: #f1f1f1;
+  background: #1aac83;
   padding: 6px;
-  border-radius: 50%;
-  color: #333;
+  border-radius: 4px;
+  color: #fff;
 }
 
 /* new workout form */
