@@ -6,10 +6,10 @@ import Navbar from './components/Navbar'
 
 function App() {
   return (
-    <div className="App">
+    <div className="text-[#1aac83]">
       <BrowserRouter>
         <Navbar/>
-        <div className='pages'>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Routes>
             <Route
               path="/"

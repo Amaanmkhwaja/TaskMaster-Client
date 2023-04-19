@@ -41,30 +41,30 @@ function TaskForm() {
     }
 
     return (
-        <form className="create" onSubmit={handleSubmit}>
-            <h3>Add a New Task</h3>
+        <form className="fixed top-36 right-1/4 bg-white shadow-md rounded px-8 mt-1 pt-6 pb-6" onSubmit={handleSubmit}>
+            <h3 className="text-black font-bold text-xl mb-2">Add a New Task</h3>
 
-            <label>Task Title:</label>
-            <input type="text" 
+            <label className=' text-black block'>Task Title:</label>
+            <input className="text-black block box-border p-2.5 mt-2.5 mb-5 w-full h-7 rounded border border-black" type="text" 
             onChange={(e) => setTitle(e.target.value)}
             value={title}
             />
 
-            <label>Task Description:</label>
-            <input type="text" 
+            <label className='text-black block'>Task Description:</label>
+            <input className="text-black block box-border p-2.5 mt-2.5 mb-5 w-full h-7 rounded border border-black" type="text" 
             onChange={(e) => setDescription(e.target.value)}
             value={description}
             />
 
-            <div className="task-completed">
-                <label>Task Completed:</label>
+            <div className="flex items-center mb-5">
+                <label className="text-black block w-36">Task Completed:</label>
                 <input type="checkbox" checked={completed} 
                 onChange={(e) => setCompleted(e.target.checked)}
                 value={completed}
                 />
             </div>
 
-            <button>Add Task</button>
+            <button className='bg-[#1aac83] text-[#fff] border-0 p-2.5 rounded cursor-pointer'>Add Task</button>
             {error && <p>{error}</p>}
         </form>
     )

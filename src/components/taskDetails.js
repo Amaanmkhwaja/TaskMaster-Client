@@ -36,16 +36,21 @@ function TaskDetails({task}) {
   }
 
   return (
-    <div className='task-details'>
-      <h2>{task.title}</h2>
-      <p><strong>Description: </strong>{task.description}</p>
-      <p><strong>Completed: </strong>{task.completed ? "Yes" : "No"}</p>
-      <p>{task.createdAt}</p>
-      <form onSubmit={handleDelete}>
-        <button type="submit" disabled={isLoading}>
+    <div className="relative shadow-md w-4/5 right-20 bg-white rounded ml-2 my-5 p-5  ">
+      <h3 className="mb-2.5 text-xl font-bold">{task.title}</h3>
+      <p className="text-[#555] m-0 "><strong>Description: </strong>{task.description}</p>
+      <p className='text-[#555]'><strong>Completed: </strong>{task.completed ? "Yes" : "No"}</p>
+      <p className='text-[#555]'>{task.createdAt}</p>
+      <form className='absolute top-2.5 right-2.5 cursor-pointer p-1.5 rounded text-[#fff]' onSubmit={handleDelete}>
+        <button className='bg-[#1aac83] border-0 p-2.5 rounded cursor-pointer' type="submit" disabled={isLoading}>
           {isLoading ? 'Deleting...' : 'Delete'}
         </button>
       </form>
+      <form className='absolute top-16 right-2.5 cursor-pointer p-1.5 rounded text-[#fff]' onClick={() => setShowEdit(true)}>
+        <button className='bg-[#1aac83] border-0 p-2.5 rounded cursor-pointer'>Edit</button>
+      </form>
+      {/* {showEdit && <EditTaskForm task={task} onClose={() => setShowEdit(false)} />} */}
+
     </div>
   )
 }

@@ -33,7 +33,7 @@ function Home() {
   }, [dispatch]);
 
   return (
-    <div className='home'>
+    <div className='grid grid-cols-3fr-1fr gap-24 mt-8'>
       {loading ? (
         <p>Loading tasks...</p>
       ) : (
