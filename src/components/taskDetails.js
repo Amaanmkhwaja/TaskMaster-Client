@@ -46,11 +46,12 @@ function TaskDetails({task}) {
           {isLoading ? 'Deleting...' : 'Delete'}
         </button>
       </form>
-      <form className='absolute top-16 right-2.5 cursor-pointer p-1.5 rounded text-[#fff]' onClick={() => setShowEdit(true)}>
+      <form className='absolute top-16 right-2.5 cursor-pointer p-1.5 rounded text-[#fff]' 
+      // onClick={() => setShowEdit(true)}
+      >
         <button className='bg-[#1aac83] border-0 p-2.5 rounded cursor-pointer'>Edit</button>
       </form>
       {/* {showEdit && <EditTaskForm task={task} onClose={() => setShowEdit(false)} />} */}
-
     </div>
   )
 }
