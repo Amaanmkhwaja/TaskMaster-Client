@@ -30,7 +30,7 @@ function App() {
               </Routes>
             </>
           ) : (
-            <Login />
+            <Login setUser={setUser}/>
           )}
         </div>
       </BrowserRouter>
