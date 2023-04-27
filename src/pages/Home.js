@@ -3,7 +3,7 @@ import { useState, useEffect} from 'react'
 import { useTasksContext } from "../hooks/useTasksContext";
 
 // components
-import TaskDetails from '../components/TaskDetails'
+import TaskDetails from '../components/taskDetails'
 import TaskForm from '../components/TaskForm'
 
 function Home() {
