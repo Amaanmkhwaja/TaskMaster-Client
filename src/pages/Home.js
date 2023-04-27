@@ -3,7 +3,7 @@ import { useState, useEffect} from 'react'
 import { useTasksContext } from "../hooks/useTasksContext";
 
 // components
-import TaskDetails from '../components/taskDetails'
+import TaskDetails from '../components/TaskDetails'
 import TaskForm from '../components/TaskForm'
 
 function Home() {
@@ -12,12 +12,16 @@ function Home() {
   const { tasks, dispatch } = useTasksContext()
 
   useEffect(() => {
+
+    const getUser = JSON.parse(localStorage.getItem("user"));
+    const {uid} = getUser
+
     const fetchTasks = async () => {
       try {
         // localhost
-        // const response = await fetch('/api/tasks')
+        // const response = await fetch(`/api/tasks/${uid}`)
         // deployed
-        const response = await fetch('https://taskmaster-server.herokuapp.com/api/tasks')
+        const response = await fetch(`https://taskmaster-server.herokuapp.com/api/tasks/${uid}`)
         const json = await response.json();
         if (response.ok) {
           dispatch({ type: 'SET_TASKS', payload: json });
