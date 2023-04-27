@@ -4,7 +4,7 @@ import { auth } from '../Firebase';
 
 function Navbar() {
 
-  let name, img;
+  let name;
 
   const getUser = JSON.parse(localStorage.getItem("user"));
   if (getUser) {
