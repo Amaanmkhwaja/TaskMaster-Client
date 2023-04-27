@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { useTasksContext } from "../hooks/useTasksContext";
 import formatDistanceToNow from "date-fns/formatDistanceToNow"
-import EditTaskForm from './EditTaskForm';
+// import EditTaskForm from './EditTaskForm';
 
 function TaskDetails({task}) {
 
   const [isLoading, setIsLoading] = useState(false)
   const { dispatch } = useTasksContext()
-  const [showEdit, setShowEdit] = useState(false);
+  // const [showEdit, setShowEdit] = useState(false);
 
   const handleDelete = async (event) => {
 
@@ -50,10 +50,10 @@ function TaskDetails({task}) {
           {isLoading ? 'Deleting...' : 'Delete'}
         </button>
       </form>
-      <form className='absolute top-16 right-2.5 cursor-pointer p-1.5 rounded text-[#fff]' >
+      {/* <form className='absolute top-16 right-2.5 cursor-pointer p-1.5 rounded text-[#fff]' >
         <button className='bg-[#1aac83] border-0 p-2.5 rounded cursor-pointer' onClick={() => setShowEdit(true)}>Edit</button>
       </form>
-      {showEdit && <EditTaskForm task={task} onClose={() => setShowEdit(false)} />}
+      {showEdit && <EditTaskForm task={task} onClose={() => setShowEdit(false)} />} */}
 
     </div>
   )
