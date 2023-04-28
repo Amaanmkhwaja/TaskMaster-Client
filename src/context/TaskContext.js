@@ -12,6 +12,16 @@ export const tasksReducer = (state, action) => {
             return {
                 tasks: [action.payload, ...state.tasks]
             }
+        case 'EDIT_TASK':
+            return {
+                tasks: state.tasks.map(task => {
+                    if (task._id === action.payload._id) {
+                        return action.payload
+                    } else {
+                        return task
+                    }
+                })
+            }
         case 'DELETE_TASK':
             return {
                 tasks: state.tasks.filter((t) => t._id !== action.payload._id)
@@ -26,8 +36,6 @@ export const TasksContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(tasksReducer,  {
         tasks: null
     })
-
-    
 
     return (
         <TasksContext.Provider value={{...state, dispatch}}>
