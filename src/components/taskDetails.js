@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useTasksContext } from "../hooks/useTasksContext";
 import formatDistanceToNow from "date-fns/formatDistanceToNow"
-import EditTaskForm from './EditTaskForm';
+import EditTaskForm from './editTaskForm';
 
 function TaskDetails({task}) {
 
