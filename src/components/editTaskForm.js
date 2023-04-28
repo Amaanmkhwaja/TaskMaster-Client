@@ -14,7 +14,10 @@ const EditTaskForm = ({ task, onClose }) => {
     setIsLoading(true)
 
     try {
-      const response = await fetch(`/api/tasks/${task._id}`, {
+      // localhost
+      // const response = await fetch(`/api/tasks/${task._id}`, {
+      // deployed
+      const response = await fetch(`https://taskmaster-server.herokuapp.com/api/tasks/${task._id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json'
